@@ -100,3 +100,5 @@ These visualizations use the `terrain` colormap with a shared colorbar, saved as
 - The dataset class assumes single-band GeoTIFF files. Multi-band files may require preprocessing.
 - For large datasets, adjust the `batch_size` and `num_workers` to optimize memory usage and training speed.
 - If running on a CPU, training and testing may be significantly slower. Consider reducing the batch size or using a smaller dataset.
+
+## If you have any questions, please contact: geo.wqlin@gmail.com
