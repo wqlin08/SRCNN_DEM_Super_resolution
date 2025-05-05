@@ -1,4 +1,5 @@
 # SRCNN DEM Super-Resolution Project
+![images](images/sample_5947_patch_05947_compare.png)
 
 This project implements a Super-Resolution Convolutional Neural Network (SRCNN) for enhancing the resolution of Digital Elevation Model (DEM) data stored in GeoTIFF format. The model is trained to upscale low-resolution (16x16) DEM images to high-resolution (64x64) images, improving the quality of topographic data.
 
