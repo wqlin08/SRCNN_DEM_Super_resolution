@@ -10,24 +10,12 @@ This project implements a Super-Resolution Convolutional Neural Network (SRCNN) 
 - `model_weights/`: Directory for saving trained model weights (`srcnn_best.pth`, `srcnn_best_loss.pth`, and epoch-specific checkpoints).
 - `results/`: Directory for storing visualization outputs (triptych comparisons) and super-resolved GeoTIFF files (`tif_results/`).
 
-## Requirements
-
-To run this project, ensure you have the following dependencies installed:
-
-```bash
-pip install torch torchvision numpy matplotlib scikit-image rasterio tqdm opencv-python Pillow
-```
-
-- **Python**: 3.8 or higher
-- **PyTorch**: 1.9 or higher (with CUDA support for GPU training)
-- **Hardware**: GPU recommended for faster training, but CPU is supported.
-
 ## Dataset Preparation
 
 The dataset should consist of GeoTIFF files containing DEM data with the following specifications:
 
-- **Training Data**: High-resolution DEM images (64x64 pixels) stored in a directory (e.g., `datasets/train_datasets/datasets_hr/`).
-- **Test Data**: High-resolution DEM images (64x64 pixels) stored in a separate directory (e.g., `datasets/test_datasets/datasets_hr/`).
+- **Training Data**: High-resolution DEM images (64x64 pixels) stored in a directory.
+- **Test Data**: High-resolution DEM images (64x64 pixels) stored in a separate directory.
 
 Each GeoTIFF file should represent a single DEM patch. The dataset class (`DEMDataset`) normalizes the data and generates low-resolution versions (16x16) using nearest-neighbor downsampling during training and testing.
 
@@ -112,24 +100,3 @@ These visualizations use the `terrain` colormap with a shared colorbar, saved as
 - The dataset class assumes single-band GeoTIFF files. Multi-band files may require preprocessing.
 - For large datasets, adjust the `batch_size` and `num_workers` to optimize memory usage and training speed.
 - If running on a CPU, training and testing may be significantly slower. Consider reducing the batch size or using a smaller dataset.
-
-## Example Commands
-
-```bash
-# Train the model
-python train_srcnn.py --train_dir datasets/train_datasets/datasets_hr --test_dir datasets/test_datasets/datasets_hr --epochs 150 --batch_size 16
-
-# Test the model
-python test_srcnn.py --model_path model_weights/srcnn_best.pth --test_dir datasets/test_datasets/datasets_hr --num_samples 5 --bicubic_compare --save_tiff
-```
-
-## Future Improvements
-
-- Add support for multi-band GeoTIFF files.
-- Implement additional super-resolution architectures (e.g., SRResNet, EDSR).
-- Optimize the model for larger DEM patches or variable input sizes.
-- Integrate data augmentation techniques to improve model robustness.
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
