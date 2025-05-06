@@ -340,8 +340,8 @@ def test_model(model_path, test_data_dir, num_samples=5, bicubic_compare=True, s
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Test SRCNN model')
-    parser.add_argument('--model_path', type=str, default=r'C:\Users\qinglin wu\Desktop\other_sr_model_train\SRCNN\model_weights\srcnn_best.pth', help='Model path')
-    parser.add_argument('--test_dir', type=str, default=r'C:\Users\qinglin wu\Desktop\other_sr_model_train\datasets\test_datasets\datasets_hr\datasets_hr', help='Test data directory')
+    parser.add_argument('--model_path', type=str, default='srcnn_best.pth', help='Model path')
+    parser.add_argument('--test_dir', type=str, default='', help='Test data directory')
     parser.add_argument('--num_samples', type=int, default=5, help='Number of samples to visualize')
     parser.add_argument('--bicubic_compare', action='store_true', default=True, help='Compare with bicubic interpolation results')
     parser.add_argument('--save_tiff', action='store_true', default=True, help='Save TIF file results')
