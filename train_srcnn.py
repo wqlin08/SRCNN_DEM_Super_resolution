@@ -281,7 +281,7 @@ def main():
         write_log(val_log_message, is_validation=True)
 
         if (epoch + 1) % 10 == 0:
-            model_save_path = os.path.join(model_dir, f"srresnet_epoch_{epoch+1}.pth")
+            model_save_path = os.path.join(model_dir, f"srrcnn_epoch_{epoch+1}.pth")
             torch.save(model.state_dict(), model_save_path)
             print(f"model save {model_save_path}")
 
